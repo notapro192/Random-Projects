@@ -8,7 +8,7 @@ public class LongestCollatzSequence {
 
     public static int longCollatz(int max){
         int steps = 0;
-        int longestSteps = 0;
+        int longeststeps = 0;
         for (int i = 1; i < max; i ++){
             int num = i;
             while (num != 1){
@@ -20,11 +20,11 @@ public class LongestCollatzSequence {
                 }
                 steps ++;
             }
-            if (steps > longestSteps){
-                longestSteps = steps;
+            if (steps > longeststeps){
+                longeststeps = steps;
             }
         }
 
-        return longestSteps;
+        return longeststeps;
     }
 }

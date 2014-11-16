@@ -3,30 +3,32 @@ package me.maxagin.Euler;
 public class EvenFibonnaciNumbers {
 
     public static void main(String [] args){
-        System.out.print(sumEvenFibonacci(4));
+        System.out.print(sumEvenFibonacci(4000000));
     }
 
     public static int sumEvenFibonacci(int max){
-        int x = 1;
-        int y = 2;
-        int count = 1;
-        int tot = 0;
-        while(count < max){
-            count++;
-            if (count % 2 == 0){
-                x = x + y;
+        int fib1 = 1;
+        int fib2 = 0;
+        int fibMaster;
+        int fibTotal = 0;
+        for(int i = 0; ;i ++) {
+            fibMaster = fib1 + fib2;
+            fib1 = fib2;
+            fib2 = fibMaster;
+            if (fibMaster > max){
+                break;
             }
             else{
-                y = x + y;
-            }
-            if(x%2 == 0){
-                tot += x;
-            }
-            else if(y%2 == 0){
-                tot += y;
+                if (isEven(fibMaster)){
+                    fibTotal += fibMaster;
+                }
             }
 
         }
-        return tot;
+        return fibTotal;
+    }
+    public static boolean isEven(int num){
+        return (num % 2 == 0);
     }
 }
+

@@ -1,22 +1,17 @@
 package me.maxagin.Euler;
 
 import me.maxagin.MasterClasses.Divisible;
+import me.maxagin.MasterClasses.NthTriangleNumber;
+import me.maxagin.MasterClasses.NumberOfDivisors;
 
 public class DivisibleTriangleNumber {
-    public static void main(String[] args) {
-        int count = 0;
+    public static void main(String[] args){
+        int d = 0;
         int triNum = 0;
-        for(int i = 1; count <500 ;i++){
-            triNum = (i*(i+1)/2);
-            for(int x = 1; x < triNum ;x++){
-                if(Divisible.divisible(triNum,x)){
-                    count++;
-                }
-                else{
-                    count = 0;
-                }
-            }
+        for (int i = 1; d < 500; i++){
+            triNum = NthTriangleNumber.nthTriNumber(i);
+            d = NumberOfDivisors.numberOfDivisors(triNum);
         }
-        System.out.println("3");
+        System.out.println(triNum);
     }
 }
